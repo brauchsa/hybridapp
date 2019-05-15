@@ -1,0 +1,48 @@
+<?php
+$serverName = "13.92.86.205";
+$connectionOptions = array(
+    "Database" => "demoapp",
+    "Uid" => "sqladmin",
+    "PWD" => "Housedoor2016"
+);
+
+
+$nombre = $_GET['nombre'];
+$tel = $_GET['telefono'];
+
+
+//Establishes the connection
+$conn = sqlsrv_connect($serverName, $connectionOptions);
+if( $conn === false ) {
+    die( FormatErrors( sqlsrv_errors()));
+}
+
+//Select Query
+//$tsql= "SELECT * from registros";
+$tsql = "INSERT INTO registros (Nombre, Telefono) values ('$nombre','$tel')";
+//Executes the query
+$getResults= sqlsrv_query($conn, $tsql);
+
+//Error handling
+if ($getResults == FALSE)
+    die(FormatErrors(sqlsrv_errors()));
+?>
+
+<h1> Registro Ingresado </h1>
+
+<?php
+
+sqlsrv_free_stmt($getResults);
+
+function FormatErrors( $errors )
+{
+    /* Display errors. */
+    echo "Error information: <br/>";
+    foreach ( $errors as $error )
+    {
+        echo "SQLSTATE: ".$error['SQLSTATE']."<br/>";
+        echo "Code: ".$error['code']."<br/>";
+        echo "Message: ".$error['message']."<br/>";
+    }
+}
+?>

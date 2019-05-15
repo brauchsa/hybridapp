@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="estilos.css" rel="stylesheet" type="text/css">
+<title>Innovation Summit 2017</title>
+
+<script language="javascript">
+ function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  var id = document.getElementById("txtEnrollment").value;
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("response").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "search.php?id="+id, true);
+  xhttp.send();
+}
+</script> 
+</head>
+
+<body>
+<div id="header">
+<img src="img/header-logo.png"></img>
+</div>
+
+<div id="hero">
+<div class="content">
+	<h1>Microsoft Hybrid App Demo</h1>
+</div>
+</div>
+<div id="wrapper">
+	<div class="container grey">
+    	<div class="content">
+        	<p>Este sitio está corriendo en App Service Azure <b>v4</b>.<br></br></p>
+        </div>          
+    </div>
+
+
+    <div class="form">
+    <div class="container">
+    <div class="content">
+    <div class="section">
+    <div class="section-content">
+    <div class="row">
+    <div class="full">
+    <form method="get" action="setRegistros.php">
+    <label for="txtEnrollment">Nombre:</label>
+    <input type="text" name="nombre" id="nombre">
+    <div>
+      <label for="txtEnrollment"> Cuenta:</label>
+    <input type="text" name="telefono" id="telefono">
+    </div>
+	</div>
+    </div>
+    <div class="row">
+    <button onclick="Submit" name="button" id="btnSent">Submit</button>
+    </form>
+    </div>
+   
+    
+    <div class="row">
+    <span id="response"></span>
+    
+    </div>
+    
+    </div></div></div></div></div>
+
+
+  <div id="footer">
+    &copy; 2016 Microsoft Corporation. All rights reserved. | <a href="http://www.microsoft.com/about/legal/en/us/Intellectualproperty/Copyright/Default.aspx" target="_blank">Terms of Use</a>
+    | <a href="http://www.microsoft.com/en-us/privacystatement/default.aspx">Privacy Statement</a>
+  </div>
+  
+  
+</body>
+</html>

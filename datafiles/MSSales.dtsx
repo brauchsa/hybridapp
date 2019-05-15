@@ -1,0 +1,1804 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2017 5:03:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BCSPERSHOME"
+  DTS:CreatorName="BCSPERSHOME\Braulio"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{DAA59C20-4FB8-4215-BDA0-F72B239B872C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2164.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="MSSales"
+  DTS:VersionGUID="{247B519F-F215-4674-86EE-C7FAA7039C79}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5134F5BC-0A0F-4F3C-912F-ECCF0E4DDA25}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=sstrackingsqltest.database.windows.net;User ID=ssadmin;Initial Catalog=sstrackingsql_test;Provider=SQLNCLI11;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsJqauo03pEqqAjQy1ppIiAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA+IRjRzIlEBLy8gp30DWFXCIGnsxddhszUnRCQtRX6ZAAAAAAOgAAAAAIAACAAAAA8SVAI6LVZ96hI+JBHZA3T6D/9X64RWWLOISvciswkhSAAAABn5WrmqKjz3UYq39aG/l4ogvHpjBd8PK8AVbNKRd1mZEAAAABiKfvdh/SSEr/LagBL/D4FhyHJYWgTlo5YV5lcwtOPTNVl08uHazy5WvbhkYdnuh6RXP4OQ8zxkhbosCjVIVyU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{DD5B882A-F3E7-4715-86F9-128877F8CBEA}"
+      DTS:ObjectName="SourceConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\Work\OneDrive for Business\sstracking\FY17 StorSimple Wins 02.17.17.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{70DCC2E5-DE75-4001-82E7-119DD8AD2651}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Data Conversion 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Enrollment]"
+                      cachedDataType="r8"
+                      cachedName="Enrollment"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Enrollment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[TPID]"
+                      cachedDataType="r8"
+                      cachedName="TPID"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[TPID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Customer Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer Name"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Customer Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Appliance]"
+                      cachedDataType="r8"
+                      cachedName="Appliance"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Appliance]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Quantity]"
+                      cachedDataType="r8"
+                      cachedName="Quantity"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Actually Shipped]"
+                      cachedDataType="r8"
+                      cachedName="Actually Shipped"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Actually Shipped]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Revenue]"
+                      cachedDataType="cy"
+                      cachedName="Revenue"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Revenue]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[CIF Form (yes/no)]"
+                      cachedDataType="date"
+                      cachedName="CIF Form (yes/no)"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[CIF Form (yes/no)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Notes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Notes"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Notes]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Sales  Date]"
+                      cachedDataType="date"
+                      cachedName="Sales  Date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Sales  Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Referral Date]"
+                      cachedDataType="date"
+                      cachedName="Referral Date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Billing Coverage Start Date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Billing Coverage Start Date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage Start Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Billing Coverage End Date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Billing Coverage End Date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage End Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Coverage Months]"
+                      cachedDataType="r8"
+                      cachedName="Coverage Months"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Coverage Months]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Commitment Period]"
+                      cachedDataType="r8"
+                      cachedName="Commitment Period"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Commitment Period]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Amendment Info]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Amendment Info"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Info]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Referral Cancelled]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Referral Cancelled"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Cancelled]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[reason for missing amendment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="reason for missing amendment"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[reason for missing amendment]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Enrollment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Enrollment]"
+                      name="Enrollment"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Enrollment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[TPID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[TPID]"
+                      name="TPID"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[TPID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Customer Name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Customer Name]"
+                      name="Customer Name"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Customer Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Appliance]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Appliance]"
+                      name="Appliance"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Appliance]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Quantity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Actually Shipped]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Actually Shipped]"
+                      name="Actually Shipped"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Actually Shipped]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Revenue]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Revenue]"
+                      name="Revenue"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Revenue]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[CIF Form (yes/no)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[CIF Form (yes/no)]"
+                      name="CIF Form (yes/no)"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[CIF Form (yes/no)]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Notes]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Notes]"
+                      name="Notes"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Notes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Sales  Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Sales  Date]"
+                      name="Sales  Date"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Sales  Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Referral Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Referral Date]"
+                      name="Referral Date"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Billing Coverage Start Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Billing Coverage Start Date]"
+                      name="Billing Coverage Start Date"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage Start Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Billing Coverage End Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Billing Coverage End Date]"
+                      name="Billing Coverage End Date"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage End Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Coverage Months]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Coverage Months]"
+                      name="Coverage Months"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Coverage Months]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Commitment Period]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Commitment Period]"
+                      name="Commitment Period"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Commitment Period]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Amendment Info]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Amendment Info]"
+                      name="Amendment Info"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Info]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Referral Cancelled]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Referral Cancelled]"
+                      name="Referral Cancelled"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Cancelled]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[reason for missing amendment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[reason for missing amendment]"
+                      name="reason for missing amendment"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[reason for missing amendment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination - msinfo"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - msinfo"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[msinfo]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - msinfo.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Enrollment]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Enrollment"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[enrollment]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Enrollment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[TPID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="TPID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[tpid]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[TPID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Month]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[month]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Customer Name]"
+                      cachedDataType="nText"
+                      cachedName="Customer Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[customerName]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Customer Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[ASAP Type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ASAP Type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[asapType]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[ASAP Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Appliance]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Appliance"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[appliance]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Appliance]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Actually Shipped]"
+                      cachedDataType="i4"
+                      cachedName="Actually Shipped"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[actuallyShipped]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Actually Shipped]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Revenue]"
+                      cachedDataType="r8"
+                      cachedName="Revenue"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[revenue]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Revenue]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[CIF Form (yes/no)]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CIF Form (yes/no)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[cifform]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[CIF Form (yes/no)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Shipped?]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Shipped?"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[shipped]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Shipped?]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Notes]"
+                      cachedDataType="nText"
+                      cachedName="Notes"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[notes]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Notes]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[area]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Area]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Subsidiary]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Subsidiary"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[subsidiary]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Subsidiary]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[District]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="District"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[district]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[District]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Premier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Premier"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[premier]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Premier]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Premier Countries Approved]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Premier Countries Approved"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[premierApproved]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Premier Countries Approved]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Support Level (Premium/Standard)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Support Level (Premium/Standard)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[supportLevel]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Support Level (Premium/Standard)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Sales  Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Sales  Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[salesDate]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Sales  Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Referral Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Referral Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[referralDate]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Referral Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[MSX ID #]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MSX ID #"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[msxID]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[MSX ID #]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Billing Coverage Start Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Billing Coverage Start Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[billingCoverageStartDate]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Billing Coverage Start Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Billing Coverage End Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Billing Coverage End Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[billingCoverageEndDate]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Billing Coverage End Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Coverage Months]"
+                      cachedDataType="i4"
+                      cachedName="Coverage Months"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[coverageMonths]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Coverage Months]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Commitment Period]"
+                      cachedDataType="i4"
+                      cachedName="Commitment Period"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[commitmentPeriod]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Commitment Period]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Amendment Info]"
+                      cachedDataType="nText"
+                      cachedName="Amendment Info"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[amendmentInfo]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Amendment Info]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Amendment Y/N]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Amendment Y/N"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[amendmentBoolean]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Y/N]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Referral Cancelled]"
+                      cachedDataType="nText"
+                      cachedName="Referral Cancelled"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[referralCancelled]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Referral Cancelled]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Apsire Unit (Y/N)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Apsire Unit (Y/N)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[aspireUnit]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Apsire Unit (Y/N)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[Seller Alias]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Seller Alias"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[sellerAlias]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Seller Alias]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[LSS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LSS"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[lss]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[LSS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].Columns[reason for missing amendment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="reason for missing amendment"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[reasonForMissingAmendment]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[reason for missing amendment]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[enrollment]"
+                      dataType="wstr"
+                      length="50"
+                      name="enrollment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[tpid]"
+                      dataType="wstr"
+                      length="50"
+                      name="tpid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[month]"
+                      dataType="wstr"
+                      length="50"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[customerName]"
+                      dataType="nText"
+                      name="customerName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[asapType]"
+                      dataType="wstr"
+                      length="50"
+                      name="asapType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[appliance]"
+                      dataType="wstr"
+                      length="50"
+                      name="appliance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[shipped]"
+                      dataType="wstr"
+                      length="50"
+                      name="shipped" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[notes]"
+                      dataType="nText"
+                      name="notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[area]"
+                      dataType="wstr"
+                      length="50"
+                      name="area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[subsidiary]"
+                      dataType="wstr"
+                      length="50"
+                      name="subsidiary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[district]"
+                      dataType="wstr"
+                      length="50"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[premier]"
+                      dataType="wstr"
+                      length="50"
+                      name="premier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[premierApproved]"
+                      dataType="wstr"
+                      length="50"
+                      name="premierApproved" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[supportLevel]"
+                      dataType="wstr"
+                      length="50"
+                      name="supportLevel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[salesDate]"
+                      dataType="dbDate"
+                      name="salesDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[referralDate]"
+                      dataType="dbDate"
+                      name="referralDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[msxID]"
+                      dataType="wstr"
+                      length="50"
+                      name="msxID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[billingCoverageStartDate]"
+                      dataType="dbDate"
+                      name="billingCoverageStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[billingCoverageEndDate]"
+                      dataType="dbDate"
+                      name="billingCoverageEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[coverageMonths]"
+                      dataType="i4"
+                      name="coverageMonths" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[commitmentPeriod]"
+                      dataType="i4"
+                      name="commitmentPeriod" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[amendmentInfo]"
+                      dataType="nText"
+                      name="amendmentInfo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[amendmentBoolean]"
+                      dataType="wstr"
+                      length="10"
+                      name="amendmentBoolean" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[referralCancelled]"
+                      dataType="nText"
+                      name="referralCancelled" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[aspireUnit]"
+                      dataType="wstr"
+                      length="10"
+                      name="aspireUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[lss]"
+                      dataType="wstr"
+                      length="50"
+                      name="lss" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[reasonForMissingAmendment]"
+                      codePage="1252"
+                      dataType="text"
+                      name="reasonForMissingAmendment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[revenue]"
+                      dataType="r8"
+                      name="revenue" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[cifform]"
+                      dataType="wstr"
+                      length="50"
+                      name="cifform" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[sellerAlias]"
+                      dataType="wstr"
+                      length="50"
+                      name="sellerAlias" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input].ExternalColumns[actuallyShipped]"
+                      dataType="i4"
+                      name="actuallyShipped" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - msinfo.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - msinfo.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - msinfo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - msinfo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source - 'FY17 Devices$'"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'FY17 Devices$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Enrollment]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Enrollment]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Enrollment]"
+                      name="Enrollment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[TPID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[TPID]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[TPID]"
+                      name="TPID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Month]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Month]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Customer Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Customer Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Customer Name]"
+                      name="Customer Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[ASAP Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[ASAP Type]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[ASAP Type]"
+                      name="ASAP Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Appliance]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Appliance]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Appliance]"
+                      name="Appliance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Actually Shipped]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Actually Shipped]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Actually Shipped]"
+                      name="Actually Shipped"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Revenue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Revenue]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Revenue]"
+                      name="Revenue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[CIF Form (yes/no)]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[CIF Form (yes/no)]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[CIF Form (yes/no)]"
+                      name="CIF Form (yes/no)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Shipped?]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Shipped?]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Shipped?]"
+                      name="Shipped?"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Notes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Notes]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Notes]"
+                      name="Notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Area]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Area]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Subsidiary]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Subsidiary]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Subsidiary]"
+                      name="Subsidiary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[District]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[District]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[District]"
+                      name="District"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Premier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Premier]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Premier]"
+                      name="Premier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Premier Countries Approved]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Premier Countries Approved]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Premier Countries Approved]"
+                      name="Premier Countries Approved"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Support Level (Premium/Standard)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Support Level (Premium/Standard)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Support Level (Premium/Standard)]"
+                      name="Support Level (Premium/Standard)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Sales  Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Sales  Date]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Sales  Date]"
+                      name="Sales  Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Referral Date]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Date]"
+                      name="Referral Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[MSX ID #]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[MSX ID #]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[MSX ID #]"
+                      name="MSX ID #"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage Start Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Billing Coverage Start Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage Start Date]"
+                      name="Billing Coverage Start Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage End Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Billing Coverage End Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Billing Coverage End Date]"
+                      name="Billing Coverage End Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Coverage Months]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Coverage Months]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Coverage Months]"
+                      name="Coverage Months"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Commitment Period]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Commitment Period]"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Commitment Period]"
+                      name="Commitment Period"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Info]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Amendment Info]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Info]"
+                      name="Amendment Info"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Y/N]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Amendment Y/N]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Amendment Y/N]"
+                      name="Amendment Y/N"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Cancelled]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Referral Cancelled]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Referral Cancelled]"
+                      name="Referral Cancelled"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Apsire Unit (Y/N)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Apsire Unit (Y/N)]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Apsire Unit (Y/N)]"
+                      name="Apsire Unit (Y/N)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Seller Alias]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Seller Alias]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[Seller Alias]"
+                      name="Seller Alias"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[LSS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[LSS]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[LSS]"
+                      name="LSS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[reason for missing amendment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[reason for missing amendment]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].Columns[reason for missing amendment]"
+                      name="reason for missing amendment"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Enrollment]"
+                      dataType="r8"
+                      name="Enrollment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[TPID]"
+                      dataType="r8"
+                      name="TPID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Customer Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[ASAP Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="ASAP Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Appliance]"
+                      dataType="r8"
+                      name="Appliance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                      dataType="r8"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Actually Shipped]"
+                      dataType="r8"
+                      name="Actually Shipped" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Revenue]"
+                      dataType="cy"
+                      name="Revenue" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[CIF Form (yes/no)]"
+                      dataType="date"
+                      name="CIF Form (yes/no)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Shipped?]"
+                      dataType="wstr"
+                      length="255"
+                      name="Shipped?" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Notes]"
+                      dataType="wstr"
+                      length="255"
+                      name="Notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Subsidiary]"
+                      dataType="wstr"
+                      length="255"
+                      name="Subsidiary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="255"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Premier]"
+                      dataType="wstr"
+                      length="255"
+                      name="Premier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Premier Countries Approved]"
+                      dataType="wstr"
+                      length="255"
+                      name="Premier Countries Approved" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Support Level (Premium/Standard)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Support Level (Premium/Standard)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Sales  Date]"
+                      dataType="date"
+                      name="Sales  Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Referral Date]"
+                      dataType="date"
+                      name="Referral Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[MSX ID #]"
+                      dataType="wstr"
+                      length="255"
+                      name="MSX ID #" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Billing Coverage Start Date]"
+                      dataType="wstr"
+                      length="255"
+                      name="Billing Coverage Start Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Billing Coverage End Date]"
+                      dataType="wstr"
+                      length="255"
+                      name="Billing Coverage End Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Coverage Months]"
+                      dataType="r8"
+                      name="Coverage Months" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Commitment Period]"
+                      dataType="r8"
+                      name="Commitment Period" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Amendment Info]"
+                      dataType="wstr"
+                      length="255"
+                      name="Amendment Info" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Amendment Y/N]"
+                      dataType="wstr"
+                      length="255"
+                      name="Amendment Y/N" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Referral Cancelled]"
+                      dataType="wstr"
+                      length="255"
+                      name="Referral Cancelled" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Apsire Unit (Y/N)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Apsire Unit (Y/N)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[Seller Alias]"
+                      dataType="wstr"
+                      length="255"
+                      name="Seller Alias" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[LSS]"
+                      dataType="wstr"
+                      length="255"
+                      name="LSS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output].ExternalColumns[reason for missing amendment]"
+                      dataType="wstr"
+                      length="255"
+                      name="reason for missing amendment" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Enrollment]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Enrollment]"
+                      name="Enrollment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[TPID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[TPID]"
+                      name="TPID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Month]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Month]"
+                      name="Month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Customer Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Customer Name]"
+                      name="Customer Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[ASAP Type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[ASAP Type]"
+                      name="ASAP Type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Appliance]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Appliance]"
+                      name="Appliance" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Quantity]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Actually Shipped]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Actually Shipped]"
+                      name="Actually Shipped" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Revenue]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Revenue]"
+                      name="Revenue" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[CIF Form (yes/no)]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[CIF Form (yes/no)]"
+                      name="CIF Form (yes/no)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Shipped?]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Shipped?]"
+                      name="Shipped?" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Notes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Notes]"
+                      name="Notes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Subsidiary]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Subsidiary]"
+                      name="Subsidiary" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[District]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[District]"
+                      name="District" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Premier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Premier]"
+                      name="Premier" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Premier Countries Approved]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Premier Countries Approved]"
+                      name="Premier Countries Approved" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Support Level (Premium/Standard)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Support Level (Premium/Standard)]"
+                      name="Support Level (Premium/Standard)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Sales  Date]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Sales  Date]"
+                      name="Sales  Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Referral Date]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Referral Date]"
+                      name="Referral Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[MSX ID #]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[MSX ID #]"
+                      name="MSX ID #" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Billing Coverage Start Date]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Billing Coverage Start Date]"
+                      name="Billing Coverage Start Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Billing Coverage End Date]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Billing Coverage End Date]"
+                      name="Billing Coverage End Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Coverage Months]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Coverage Months]"
+                      name="Coverage Months" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Commitment Period]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Commitment Period]"
+                      name="Commitment Period" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Amendment Info]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Amendment Info]"
+                      name="Amendment Info" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Amendment Y/N]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Amendment Y/N]"
+                      name="Amendment Y/N" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Referral Cancelled]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Referral Cancelled]"
+                      name="Referral Cancelled" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Apsire Unit (Y/N)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Apsire Unit (Y/N)]"
+                      name="Apsire Unit (Y/N)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Seller Alias]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[Seller Alias]"
+                      name="Seller Alias" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[LSS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[LSS]"
+                      name="LSS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[reason for missing amendment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[reason for missing amendment]"
+                      name="reason for missing amendment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1\Destination - msinfo.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source - 'FY17 Devices$'.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{4A612DB6-796E-489F-BE41-532461A8C647}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5134F5BC-0A0F-4F3C-912F-ECCF0E4DDA25}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[msinfo]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{FEAE225F-AB39-4716-BA71-FB41BA75CF6C\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{FEAE225F-AB39-4716-BA71-FB41BA75CF6C}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{FEAE225F-AB39-4716-BA71-FB41BA75CF6C}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
